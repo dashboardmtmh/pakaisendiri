@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue ALL RS</title>
+    <style>
+        /* Styling dasar */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #1883B0; /* Warna biru */
+            color: #FFFFFF;
+        }
+
+        /* Container Login */
+        .login-container {
+            text-align: center;
+            padding: 40px;
+            background: #FFFFFF; /* Warna putih untuk kontras */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            color: #1883B0; /* Menggunakan warna biru sebagai warna teks */
+        }
+
+        .login-container h2 {
+            font-size: 26px;
+            color: #C9292E; /* Warna merah */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #1883B0;
+            padding-bottom: 5px;
+        }
+
+        /* Styling input */
+        .login-container input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background: #F0F0F0;
+            border: 1px solid #68C8BB; /* Warna hijau pirus */
+            color: #1883B0;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-container input:focus {
+            border-color: #C9292E;
+        }
+
+        /* Tombol login */
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #1883B0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #C9292E; /* Warna merah */
+        }
+
+        /* Full screen dashboard */
+        .fullscreen-dashboard {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #68C8BB; /* Warna hijau pirus */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <h2>Revenue <br> Murni Teguh</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="fullscreen-dashboard" class="fullscreen-dashboard">
+        <iframe title="Dashboard Revenue-New" width="100%" height="100%"
+                src="https://app.powerbi.com/view?r=eyJrIjoiMWMwZTM3ZDMtOTE4OS00NThjLWE1MDgtNWQyNGM1ODFkMzBmIiwidCI6ImI1OWExYWE2LWY4YWItNDJiNy1iZTMzLWY0ZWY0OTcyNDE5YiIsImMiOjEwfQ%3D%3D"
+                frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <script>
+        // Array berisi pasangan username dan password yang diizinkan
+        const users = [
+            { username: "admin", password: "Mtmh@123" },
+            { username: "admin2", password: "pass234" },
+            { username: "user1", password: "userpass1" },
+            { username: "user2", password: "userpass2" },
+            { username: "guest", password: "guestpass" }
+        ];
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verifikasi apakah pasangan username dan password ada dalam array users
+            const validUser = users.some(user => user.username === username && user.password === password);
+
+            if (validUser) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('fullscreen-dashboard').style.display = 'block';
+            } else {
+                alert("Username atau password salah.");
+            }
+        }
+    </script>
+</body>
+</html>
