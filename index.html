@@ -11,32 +11,11 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-        }
-
-        .navbar {
-            background-color: #1883B0;
-            overflow: hidden;
-            padding: 10px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fff;
             text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: #68C8BB;
-            color: #000;
         }
 
         .content {
-            padding: 20px;
-            text-align: center;
+            padding: 40px;
         }
 
         .content h1 {
@@ -46,6 +25,29 @@
 
         .content p {
             font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button-container a {
+            background-color: #1883B0;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #68C8BB;
         }
 
         .footer {
@@ -61,19 +63,19 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="revenue.html">Revenue</a>
-        <a href="formestimate.html">Form Estimasi</a>
-        <a href="C.html">Halaman C</a>
-        <a href="D.html">Halaman D</a>
-        <a href="E.html">Halaman E</a>
-    </div>
-
     <!-- Main Content -->
     <div class="content">
         <h1>Selamat datang di Menu Navigasi</h1>
-        <p>Gunakan menu di atas untuk menavigasi ke halaman A, B, C, D, atau E.</p>
+        <p>Gunakan tombol di bawah untuk menavigasi ke halaman yang diinginkan:</p>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <a href="revenue.html">Revenue</a>
+            <a href="formestimate.html">Form Estimasi</a>
+            <a href="C.html">Halaman C</a>
+            <a href="D.html">Halaman D</a>
+            <a href="E.html">Halaman E</a>
+        </div>
     </div>
 
     <!-- Footer -->
