@@ -85,6 +85,12 @@
             background: #68C8BB; /* Warna hijau pirus */
             display: none;
         }
+
+        /* Pesan kesalahan */
+        .error-message {
+            color: #C9292E;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -93,6 +99,7 @@
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
+        <p id="error-message" class="error-message" style="display: none;">Username atau password salah. Jika Anda mengalami kesulitan, hubungi Wianto Wijaya di nomor 081264721516.</p>
     </div>
 
     <div id="fullscreen-dashboard" class="fullscreen-dashboard">
@@ -114,6 +121,7 @@
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
 
             // Verifikasi apakah pasangan username dan password ada dalam array users
             const validUser = users.some(user => user.username === username && user.password === password);
@@ -121,8 +129,9 @@
             if (validUser) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('fullscreen-dashboard').style.display = 'block';
+                errorMessage.style.display = 'none'; // Sembunyikan pesan error jika berhasil login
             } else {
-                alert("Username atau password salah.");
+                errorMessage.style.display = 'block'; // Tampilkan pesan error jika login gagal
             }
         }
     </script>
