@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: #1883B0; /* Warna biru */
+            background: #1E272E; /* Abu tua */
             color: #FFFFFF;
         }
 
@@ -21,20 +21,26 @@
         .login-container {
             text-align: center;
             padding: 40px;
-            background: #FFFFFF; /* Warna putih untuk kontras */
+            background: #F3F4F5; /* Abu terang */
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             width: 320px;
-            color: #1883B0; /* Menggunakan warna biru sebagai warna teks */
+            color: #1E272E; /* Abu tua */
+        }
+
+        .login-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         .login-container h2 {
             font-size: 26px;
-            color: #C9292E; /* Warna merah */
+            color: #16A085; /* Hijau terang */
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid #1883B0;
+            border-bottom: 2px solid #27AE60;
             padding-bottom: 5px;
         }
 
@@ -44,9 +50,9 @@
             margin-bottom: 15px;
             padding: 10px;
             font-size: 16px;
-            background: #F0F0F0;
-            border: 1px solid #68C8BB; /* Warna hijau pirus */
-            color: #1883B0;
+            background: #D7DBDD; /* Abu terang */
+            border: 1px solid #27AE60; /* Hijau gelap */
+            color: #1E272E;
             border-radius: 5px;
             outline: none;
             text-align: center;
@@ -54,7 +60,7 @@
         }
 
         .login-container input:focus {
-            border-color: #C9292E;
+            border-color: #16A085; /* Hijau terang */
         }
 
         /* Tombol login */
@@ -64,7 +70,7 @@
             font-size: 18px;
             font-weight: bold;
             color: #FFFFFF;
-            background-color: #1883B0;
+            background-color: #27AE60; /* Hijau */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -72,7 +78,7 @@
         }
 
         .login-container button:hover {
-            background-color: #C9292E; /* Warna merah */
+            background-color: #16A085; /* Hijau terang */
         }
 
         /* Full screen dashboard */
@@ -82,17 +88,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #68C8BB; /* Warna hijau pirus */
+            background: #BFC9CA; /* Abu terang */
             display: none;
+        }
+
+        /* Pesan kesalahan */
+        .error-message {
+            color: #E74C3C; /* Merah untuk error */
+            margin-top: 10px;
+            font-size: 10px;
+            font-family: 'Calibri';
         }
     </style>
 </head>
 <body>
     <div class="login-container" id="login-container">
+        <!-- Logo -->
+        <img src="https://stami.murnisadar.ac.id/assets/images/logo-murniteguh.png" alt="Logo Murni Teguh">
+        
         <h2>Form Estimasi Klaim <br> Murni Teguh</h2>
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
+        <p id="error-message" class="error-message" style="display: none;">
+            *Username atau password salah. Jika Anda mengalami kesulitan, hubungi Wianto Wijaya di nomor 081264721516.
+        </p>
     </div>
 
     <div id="fullscreen-dashboard" class="fullscreen-dashboard">
@@ -114,6 +134,7 @@
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
 
             // Verifikasi apakah pasangan username dan password ada dalam array users
             const validUser = users.some(user => user.username === username && user.password === password);
@@ -121,12 +142,11 @@
             if (validUser) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('fullscreen-dashboard').style.display = 'block';
+                errorMessage.style.display = 'none'; // Sembunyikan pesan error jika berhasil login
             } else {
-                alert("Username atau password salah.");
+                errorMessage.style.display = 'block'; // Tampilkan pesan error jika login gagal
             }
         }
     </script>
 </body>
 </html>
-
-
