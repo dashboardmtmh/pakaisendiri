@@ -3,80 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Navigasi</title>
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfgjtzM-d1YGfgNfwYgYDbGEq3paKDLo_-Pg&s" type="image/x-icon">
+    <title>Menu Navigasi - Doraemon Theme</title>
+    <link rel="icon" href="https://play-lh.googleusercontent.com/ijEbDX1-a-RfaDhXb1d1_9-0J1ecESRaHambA1wCwlpU95X2q-FLZXc0tgkoXe_V3g" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
+        /* Styling dasar */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: #0098D2; /* Warna biru khas Doraemon */
+            color: #fff;
             text-align: center;
+            background-color: #2C3E50;
         }
 
+        /* Main Content */
         .content {
-            padding: 40px;
+            padding: 50px;
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            max-width: 60%;
+            margin: 80px auto;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         .content h1 {
-            font-size: 36px;
+            font-size: 50px;
+            color: #0098D2; /* Biru Doraemon */
             margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         .content p {
-            font-size: 18px;
+            font-size: 22px;
             margin-bottom: 30px;
+            font-weight: 300;
         }
 
+        /* Button Container */
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .button-container a {
-            background-color: #1883B0;
+            background: #0098D2; /* Biru Doraemon */
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             font-size: 18px;
             text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 3px solid #0098D2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button-container a i {
+            margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
         }
 
         .button-container a:hover {
-            background-color: #68C8BB;
+            background-color: #fff;
+            color: #0098D2;
+            transform: translateY(-6px); /* Efek mengangkat tombol */
         }
 
+        /* Footer */
         .footer {
-            background-color: #1883B0;
+            background-color: #00A0B6; /* Biru yang lebih gelap */
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 15px;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
+
+        /* Ikon dan gambar tambahan */
+        .icon-img {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Main Content -->
     <div class="content">
-        <h1>Selamat datang di Menu Navigasi Dashboard Murni Teguh</h1>
+        <h1>Selamat datang di Menu Navigasi Dashboard</h1>
         <p>Gunakan tombol di bawah untuk menavigasi ke halaman yang diinginkan:</p>
 
         <!-- Button Container -->
         <div class="button-container">
-            <a href="revenue.html">Revenue</a>
-            <a href="formestimate.html">Form Estimasi</a>
-            <a href="ur.html">UR Pasien BPJS</a>
-            <a href="D.html">Halaman D</a>
-            <a href="E.html">Halaman E</a>
+            <a href="revenue.html"><i class="fas fa-chart-line"></i>Revenue</a>
+            <a href="formestimate.html"><i class="fas fa-calculator"></i>Form Estimasi</a>
+            <a href="ur.html"><i class="fas fa-hospital"></i>UR Pasien BPJS</a>
+            <a href="D.html"><i class="fas fa-cogs"></i>Halaman D</a>
+            <a href="E.html"><i class="fas fa-cogs"></i>Halaman E</a>
         </div>
+
+        <!-- Gambar Doraemon -->
+        <img src="https://pluspng.com/img-png/hospital-png-hd-images-hospital-clipart-icon-pluspng-1983.png" alt="Logo" class="icon-img">
     </div>
 
     <!-- Footer -->
