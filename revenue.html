@@ -28,14 +28,22 @@
             color: #1883B0; /* Menggunakan warna biru sebagai warna teks */
         }
 
+        /* Styling logo */
+        .login-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
         .login-container h2 {
             font-size: 26px;
-            color: #C9292E; /* Warna merah */
+            color: #000000; /* Warna merah */
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-bottom: 2px solid #1883B0;
             padding-bottom: 5px;
+            font-family: 'Arial';
         }
 
         /* Styling input */
@@ -88,18 +96,23 @@
 
         /* Pesan kesalahan */
         .error-message {
-            color: #000000;
+            color: #C9292E;
             margin-top: 10px;
+            font-size: 10px;
+            font-family: 'Calibri';	
         }
     </style>
 </head>
 <body>
     <div class="login-container" id="login-container">
+        <!-- Logo -->
+        <img src="https://stami.murnisadar.ac.id/assets/images/logo-murniteguh.png" alt="Logo Murni Teguh">
+        
         <h2>Revenue <br> Murni Teguh</h2>
         <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
-        <p id="error-message" class="error-message" style="display: none;">Username atau password salah. Jika Anda mengalami kesulitan, hubungi Wianto Wijaya di nomor 081264721516.</p>
+        <p id="error-message" class="error-message" style="display: none;">*Username atau password salah. Jika Anda mengalami kesulitan, hubungi Wianto Wijaya di nomor 081264721516.</p>
     </div>
 
     <div id="fullscreen-dashboard" class="fullscreen-dashboard">
