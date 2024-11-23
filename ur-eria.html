@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UR Pasien BPJS</title>
+    <style>
+        /* Styling dasar */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #CBCFD6; /* Warna abu tua */
+            color: #FFFFFF;
+        }
+
+        /* Container Login */
+        .login-container {
+            text-align: center;
+            padding: 40px;
+            background: #ECF0F1; /* Warna putih keabuan */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            color: #2C3E50; /* Menggunakan warna abu tua sebagai warna teks */
+        }
+
+        .login-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .login-container h2 {
+            font-size: 26px;
+            color: #E74C3C; /* Warna merah terang */
+            text-transform: uppercase;
+            font-family: 'Arial';
+        }
+        .login-container h3 {
+            font-size: 23px;
+            color: #3498DB;
+            border-bottom: 2px solid #3498DB;
+            padding-bottom: 5px;
+            font-family: 'Arial';
+        }
+
+        /* Styling input */
+        .login-container input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background: #D5DBDB; /* Warna abu terang */
+            border: 1px solid #3498DB; /* Warna biru */
+            color: #2C3E50;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-container input:focus {
+            border-color: #E74C3C;
+        }
+
+        /* Tombol login */
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #3498DB;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #E74C3C; /* Warna merah terang */
+        }
+
+        /* Full screen dashboard */
+        .fullscreen-dashboard {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #95A5A6; /* Warna abu terang */
+            display: none;
+        }
+
+        /* Pesan kesalahan */
+        .error-message {
+            color: #C9292E;
+            margin-top: 10px;
+            font-size: 10px;
+            font-family: 'Calibri';
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <!-- Logo -->
+        <img src="https://stami.murnisadar.ac.id/assets/images/logo-murniteguh.png" alt="Logo Murni Teguh">
+        
+	<h2>UR Pasien BPJS</h2>
+	<h3>Murni Teguh Eria</h3>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p id="error-message" class="error-message" style="display: none;">
+            *Username atau password salah. Jika Anda mengalami kesulitan, hubungi Wianto Wijaya di nomor 081264721516.
+        </p>
+    </div>
+
+    <div id="fullscreen-dashboard" class="fullscreen-dashboard">
+        <iframe title="UR All RS" width="100%" height="100%" 
+                src="https://app.powerbi.com/view?r=eyJrIjoiMDUxZmFiY2UtYjllMC00NWRmLTkyNDYtMjZlN2IxZTZmYmZjIiwidCI6ImI1OWExYWE2LWY4YWItNDJiNy1iZTMzLWY0ZWY0OTcyNDE5YiIsImMiOjEwfQ%3D%3D&pageName=c48a83e420cae8811bce" 
+                frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <script>
+
+        const usersEncoded = [
+            "YWRtaW46TXRtaEAxMjM=", 
+            "ZGlyLmVyaWE6RXJpYUAxMjM=", 
+            "dXNlcjE6dXNlcnBhc3Mx", 
+            "dXNlcjI6dXNlcnBhc3My", 
+            "Z3Vlc3Q6Z3Vlc3RwYXNz"  
+        ];
+
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+
+            const encodedInput = btoa(`${username}:${password}`);
+
+            const validUser = usersEncoded.includes(encodedInput);
+
+            if (validUser) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('fullscreen-dashboard').style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
