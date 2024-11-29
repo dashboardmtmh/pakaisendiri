@@ -122,30 +122,33 @@ src="https://app.powerbi.com/view?r=eyJrIjoiNGUxNDFlZmItZDRhZi00YTZmLWIzNjItNjRj
 frameborder="0" allowFullScreen="true"></iframe>
     </div>
 
-    <script>
-        // Array berisi pasangan username dan password yang diizinkan
-        const users = [
-            { username: "admin", password: "Mtmh@123" },
-            { username: "admin2", password: "pass234" },
-            { username: "user1", password: "userpass1" },
-            { username: "user2", password: "userpass2" },
-            { username: "guest", password: "guestpass" }
+     <script>
+
+        const usersEncoded = [
+            "YWRtaW46TXRtaEAxMjM=", 
+            "YWRtaW4yOnBhc3MyMzQ=", 
+            "dXNlcjE6dXNlcnBhc3Mx", 
+            "dXNlcjI6dXNlcnBhc3My", 
+            "Z3Vlc3Q6Z3Vlc3RwYXNz"  
         ];
+
 
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
-            // Verifikasi apakah pasangan username dan password ada dalam array users
-            const validUser = users.some(user => user.username === username && user.password === password);
+
+            const encodedInput = btoa(`${username}:${password}`);
+
+            const validUser = usersEncoded.includes(encodedInput);
 
             if (validUser) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('fullscreen-dashboard').style.display = 'block';
-                errorMessage.style.display = 'none'; // Sembunyikan pesan error jika berhasil login
+                errorMessage.style.display = 'none';
             } else {
-                errorMessage.style.display = 'block'; // Tampilkan pesan error jika login gagal
+                errorMessage.style.display = 'block';
             }
         }
     </script>
